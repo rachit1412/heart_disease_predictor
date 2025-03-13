@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Condition Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Heart Condition Prediction</h1>
+        <form method="post">
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" placeholder="Enter your age" required>
+            
+            <label for="sex">Sex (0 = Female, 1 = Male):</label>
+            <input type="number" id="sex" name="sex" placeholder="0 for Female, 1 for Male" required>
+            
+            <label for="restbp">Resting Blood Pressure (in mm Hg):</label>
+            <input type="number" id="restbp" name="restbp" placeholder="Enter your resting blood pressure" required>
+            
+            <label for="chol">Cholesterol (in mg/dl):</label>
+            <input type="number" id="chol" name="chol" placeholder="Enter your cholesterol level" required>
+            
+            <label for="fbs">Fasting Blood Sugar (1 = True, 0 = False):</label>
+            <input type="number" id="fbs" name="fbs" placeholder="1 for True, 0 for False" required>
+            
+            <label for="restecg">Resting ECG Results (0 = Normal, 1 = ST-T wave abnormality, 2 = Left ventricular hypertrophy):</label>
+            <input type="number" id="restecg" name="restecg" placeholder="0, 1, or 2" required>
+            
+            <label for="maxhr">Maximum Heart Rate Achieved:</label>
+            <input type="number" id="maxhr" name="maxhr" placeholder="Enter your maximum heart rate" required>
+            
+            <label for="exang">Exercise Induced Angina (1 = Yes, 0 = No):</label>
+            <input type="number" id="exang" name="exang" placeholder="1 for Yes, 0 for No" required>
+            
+            <label for="oldpeak">ST Depression Induced by Exercise Relative to Rest:</label>
+            <input type="number" step="0.1" id="oldpeak" name="oldpeak" placeholder="Enter ST depression" required>
+            
+            <label for="slope">Slope of the Peak Exercise ST Segment (1 = Upsloping, 2 = Flat, 3 = Downsloping):</label>
+            <input type="number" id="slope" name="slope" placeholder="1, 2, or 3" required>
+            
+            <label for="ca">Number of Major Vessels Colored by Fluoroscopy (0-3):</label>
+            <input type="number" id="ca" name="ca" placeholder="0, 1, 2, or 3" required>
+            
+            <label for="chestpain">Chest Pain Type (typical, nontypical, nonanginal, asymptomatic):</label>
+            <input type="text" id="chestpain" name="chestpain" placeholder="Enter chest pain type" required>
+            
+            <label for="thal">Thalassemia (normal, fixed, reversable):</label>
+            <input type="text" id="thal" name="thal" placeholder="Enter thalassemia type" required>
+            
+            <button type="submit">Predict</button>
+        </form>
+        {% if result %}
+            <h2>Prediction: {{ result }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
